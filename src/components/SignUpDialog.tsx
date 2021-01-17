@@ -2,6 +2,7 @@ import React from "react"; // we need this to make JSX compile
 
 interface SignUpDialogProps {
   onSignIn: () => void;
+  onSignUp: () => void;
 }
 
 function SignUpDialog(props: SignUpDialogProps) {
@@ -23,8 +24,8 @@ function SignUpDialog(props: SignUpDialogProps) {
       <br />
       Забыли пароль?
       <br />
-      <button>Зарегистрироваться</button>
-      Уже зарегистрированы? <div onClick={props.onSignIn}>Войти</div>
+      <button onClick={props.onSignUp}>Зарегистрироваться</button><br />
+      Уже зарегистрированы? <span onClick={props.onSignIn}>Войти</span>
     </div>
   );
 }

@@ -20,8 +20,8 @@ function SignInDialog(props: SignInDialogProps) {
       <br />
       Забыли пароль?
       <br />
-      <button onClick={props.onSignIn}>Войти</button>
-      Новый пользователь? <div onClick={props.onSignUp}>Регистрация</div>
+      <button onClick={props.onSignIn}>Войти</button><br />
+      Новый пользователь? <span onClick={props.onSignUp}>Регистрация</span>
     </div>
   );
 }

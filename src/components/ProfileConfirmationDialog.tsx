@@ -8,6 +8,7 @@ function ProfileConfirmationDialog(props: ProfileConfirmationDialogProps) {
   return (
     <div style={{ background: "orange" }}>
       <h2>Профиль</h2>
+      Профиль изменен
       <br />
       <button onClick={props.onReturnToMap}>Перейти на карту</button>
     </div>

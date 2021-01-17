@@ -7,6 +7,7 @@ interface OrderConfirmationDialogProps {
 function OrderConfirmationDialog(props: OrderConfirmationDialogProps) {
   return (
     <div style={{ background: "orange" }}>
+      <h2>Заказ размещен</h2>
       <button onClick={props.onNewOrder}>Сделать новый заказ</button>
     </div>
   );
