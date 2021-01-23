@@ -1,10 +1,8 @@
 import React from "react"; // we need this to make JSX compile
 
-interface OrderDialogProps {
+const OrderDialog: React.FC<{
   onOrder: () => void;
-}
-
-function OrderDialog(props: OrderDialogProps) {
+}> = (props) => {
   return (
     <div style={{ background: "orange" }}>
       Лесная поляна
@@ -14,6 +12,6 @@ function OrderDialog(props: OrderDialogProps) {
       <button onClick={props.onOrder}>Заказать</button>
     </div>
   );
-}
+};
 
 export default OrderDialog;

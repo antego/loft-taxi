@@ -1,11 +1,9 @@
 import React from "react"; // we need this to make JSX compile
 
-interface SignInDialogProps {
+const SignInDialog: React.FC<{
   onSignUp: () => void;
   onSignIn: () => void;
-}
-
-function SignInDialog(props: SignInDialogProps) {
+}> = (props) => {
   return (
     <div style={{ background: "orange" }}>
       <h2>Войти</h2>
@@ -20,10 +18,11 @@ function SignInDialog(props: SignInDialogProps) {
       <br />
       Забыли пароль?
       <br />
-      <button onClick={props.onSignIn}>Войти</button><br />
+      <button onClick={props.onSignIn}>Войти</button>
+      <br />
       Новый пользователь? <span onClick={props.onSignUp}>Регистрация</span>
     </div>
   );
-}
+};
 
 export default SignInDialog;
