@@ -26,8 +26,8 @@ const App: React.FC<{}> = () => {
     case Page.SIGN_UP:
       return (
         <SignUpPage
-          onSignIn={() => setPage(Page.MAP_ORDER)}
-          onSignUp={() => setPage(Page.SIGN_UP)}
+          onSignIn={() => setPage(Page.SIGN_IN)}
+          onSignUp={() => setPage(Page.MAP_ORDER)}
         />
       );
     case Page.MAP_ORDER:
