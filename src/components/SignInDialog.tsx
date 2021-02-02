@@ -9,9 +9,6 @@ const useStyles = makeStyles({
     height: 300,
     width: 300,
     padding: 40,
-    position: "absolute",
-    left: "50%",
-    top: "20%",
   },
 });
 
@@ -21,7 +18,7 @@ const SignInDialog: React.FC<{
 }> = (props) => {
   const classes = useStyles();
   return (
-    <Paper className={classes.signInDialog}>
+    <Paper className={classes.signInDialog} elevation={10}>
       <h2>Войти</h2>
       <form>
         <br />

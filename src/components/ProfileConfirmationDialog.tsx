@@ -7,9 +7,6 @@ const useStyles = makeStyles({
   paper: {
     width: 500,
     height: 300,
-    position: "absolute",
-    left: "20%",
-    top: "30%",
     padding: 20,
   },
 });
