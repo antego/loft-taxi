@@ -8,28 +8,28 @@ enum Dialog {
   CONFIRM,
 }
 
-const MapProfilePage: React.FC<{
-  onOrder: () => void;
+const ProfilePage: React.FC<{
+  onMap: () => void;
   onProfile: () => void;
   onSignOut: () => void;
-  onReturnToOrder: () => void;
+  onReturnToMap: () => void;
 }> = (props) => {
   const [dialog, setDialog] = useState<Dialog>(Dialog.EDIT);
 
   return (
     <>
       <Header
-        onOrder={props.onOrder}
+        onOrder={props.onMap}
         onProfile={props.onProfile}
         onSignOut={props.onSignOut}
       />
       {dialog === Dialog.EDIT ? (
         <ProfileDialog onSave={() => setDialog(Dialog.CONFIRM)} />
       ) : (
-        <ProfileConfirmationDialog onReturnToOrder={props.onReturnToOrder} />
+        <ProfileConfirmationDialog onReturnToOrder={props.onReturnToMap} />
       )}
     </>
   );
 };
 
-export default MapProfilePage;
+export default ProfilePage;

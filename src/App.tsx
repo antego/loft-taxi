@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import "./App.css";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
-import MapProfilePage from "./pages/MapProfilePage";
-import MapOrderPage from "./pages/MapOrderPage";
+import ProfilePage from "./pages/ProfilePage";
+import MapPage from "./pages/MapPage";
 
 enum Page {
   SIGN_IN,
   SIGN_UP,
-  MAP_ORDER,
-  MAP_PROFILE,
+  MAP,
+  PROFILE,
 }
 
 const App: React.FC<{}> = () => {
@@ -19,7 +19,7 @@ const App: React.FC<{}> = () => {
     case Page.SIGN_IN:
       return (
         <SignInPage
-          onSignIn={() => setPage(Page.MAP_ORDER)}
+          onSignIn={() => setPage(Page.MAP)}
           onSignUp={() => setPage(Page.SIGN_UP)}
         />
       );
@@ -27,24 +27,24 @@ const App: React.FC<{}> = () => {
       return (
         <SignUpPage
           onSignIn={() => setPage(Page.SIGN_IN)}
-          onSignUp={() => setPage(Page.MAP_ORDER)}
+          onSignUp={() => setPage(Page.MAP)}
         />
       );
-    case Page.MAP_ORDER:
+    case Page.MAP:
       return (
-        <MapOrderPage
-          onOrder={() => setPage(Page.MAP_ORDER)}
-          onProfile={() => setPage(Page.MAP_PROFILE)}
+        <MapPage
+          onMap={() => setPage(Page.MAP)}
+          onProfile={() => setPage(Page.PROFILE)}
           onSignOut={() => setPage(Page.SIGN_IN)}
         />
       );
-    case Page.MAP_PROFILE:
+    case Page.PROFILE:
       return (
-        <MapProfilePage
-          onOrder={() => setPage(Page.MAP_ORDER)}
+        <ProfilePage
+          onMap={() => setPage(Page.MAP)}
           onProfile={() => {}}
           onSignOut={() => setPage(Page.SIGN_IN)}
-          onReturnToOrder={() => setPage(Page.MAP_ORDER)}
+          onReturnToMap={() => setPage(Page.MAP)}
         />
       );
     default:
