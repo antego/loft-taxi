@@ -1,9 +1,10 @@
-import React from "react"; // we need this to make JSX compile
+import React, { useContext } from "react"; // we need this to make JSX compile
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
+import AuthContext from "./AuthContext";
 
 const useStyles = makeStyles({
   signInDialog: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles({
 
 const SignInDialog: React.FC<{}> = (props) => {
   const classes = useStyles();
+  const context = useContext(AuthContext);
   return (
     <Paper className={classes.signInDialog} elevation={10}>
       <h2>Войти</h2>
@@ -30,7 +32,7 @@ const SignInDialog: React.FC<{}> = (props) => {
         <br />
         Забыли пароль?
         <br />
-        <Button variant="contained" component={Link} to="/map" >
+        <Button variant="contained" component={Link} to="/map" onClick={context.login}>
           Войти
         </Button>
       </form>

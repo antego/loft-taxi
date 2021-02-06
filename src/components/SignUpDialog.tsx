@@ -1,9 +1,10 @@
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import React from "react"; // we need this to make JSX compile
+import React, { useContext } from "react"; // we need this to make JSX compile
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
+import AuthContext from "./AuthContext";
 
 const useStyles = makeStyles({
   signUpDialog: {
@@ -15,27 +16,35 @@ const useStyles = makeStyles({
 
 const SignUpDialog: React.FC<{}> = (props) => {
   const classes = useStyles();
+  const context = useContext(AuthContext);
   return (
     <Paper className={classes.signUpDialog} elevation={10}>
       <h2>Регистрация</h2>
       <br />
       Email
       <br />
-      <TextField label='mail@mail.ru'/>
+      <TextField label="mail@mail.ru" />
       <br />
       Как вас зовут
       <br />
-      <TextField label='Пётр Александрович' />
+      <TextField label="Пётр Александрович" />
       <br />
       Придумайте пароль
       <br />
-      <TextField type='password' />
+      <TextField type="password" />
       <br />
       Забыли пароль?
       <br />
-      <Button variant="contained" component={Link} to="/map">Зарегистрироваться</Button>
+      <Button
+        variant="contained"
+        component={Link}
+        to="/map"
+        onClick={context.login}
+      >
+        Зарегистрироваться
+      </Button>
       <br />
-      Уже зарегистрированы? <Link to="/" >Войти</Link>
+      Уже зарегистрированы? <Link to="/">Войти</Link>
     </Paper>
   );
 };
