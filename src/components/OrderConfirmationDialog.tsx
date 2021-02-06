@@ -21,7 +21,7 @@ const OrderConfirmationDialog: React.FC<{
   return (
     <Paper className={classes.paper} elevation={10}>
       <h2>Заказ размещен</h2>
-      <Button  variant='contained' onClick={props.onNewOrder}>Сделать новый заказ</Button>
+      <Button variant='contained' onClick={props.onNewOrder}>Сделать новый заказ</Button>
     </Paper>
   );
 };

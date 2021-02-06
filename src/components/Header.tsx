@@ -3,6 +3,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   appBar: {
@@ -13,11 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Header: React.FC<{
-  onOrder: () => void;
-  onSignOut: () => void;
-  onProfile: () => void;
-}> = (props) => {
+const Header: React.FC<{}> = (props) => {
   const classes = useStyles();
   return (
       <AppBar position="static" className={classes.appBar}>
@@ -25,13 +22,13 @@ const Header: React.FC<{
           <div className={classes.logo}>
             LOFT<span style={{ color: "orange" }}>TAXI</span>
           </div>
-          <Button color="inherit" onClick={props.onOrder}>
+          <Button color="inherit" component={Link} to="/map">
             Карта
           </Button>
-          <Button color="inherit" onClick={props.onProfile}>
+          <Button color="inherit" component={Link} to="/profile">
             Профиль
           </Button>
-          <Button color="inherit" onClick={props.onSignOut}>
+          <Button color="inherit" component={Link} to="/">
             Выйти
           </Button>
         </Toolbar>

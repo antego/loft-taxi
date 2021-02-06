@@ -25,7 +25,7 @@ const OrderDialog: React.FC<{
         <TextField id="standard-basic" label="Лесная поляна" />
         <TextField id="standard-basic" label="Березовая роща" />
         <br />
-        <Button  variant='contained' onClick={props.onOrder}>Заказать</Button>
+        <Button variant='contained' onClick={props.onOrder}>Заказать</Button>
       </div>
     </Paper>
   );

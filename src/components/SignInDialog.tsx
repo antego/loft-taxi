@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   signInDialog: {
@@ -12,10 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SignInDialog: React.FC<{
-  onSignUp: () => void;
-  onSignIn: () => void;
-}> = (props) => {
+const SignInDialog: React.FC<{}> = (props) => {
   const classes = useStyles();
   return (
     <Paper className={classes.signInDialog} elevation={10}>
@@ -32,12 +30,12 @@ const SignInDialog: React.FC<{
         <br />
         Забыли пароль?
         <br />
-        <Button variant="contained" onClick={props.onSignIn}>
+        <Button variant="contained" component={Link} to="/map" >
           Войти
         </Button>
       </form>
       <br />
-      Новый пользователь? <span onClick={props.onSignUp}>Регистрация</span>
+      Новый пользователь? <Link to="/signup">Регистрация</Link>
     </Paper>
   );
 };
