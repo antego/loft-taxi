@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 import React from "react"; // we need this to make JSX compile
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   signUpDialog: {
@@ -12,10 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SignUpDialog: React.FC<{
-  onSignIn: () => void;
-  onSignUp: () => void;
-}> = (props) => {
+const SignUpDialog: React.FC<{}> = (props) => {
   const classes = useStyles();
   return (
     <Paper className={classes.signUpDialog} elevation={10}>
@@ -35,9 +33,9 @@ const SignUpDialog: React.FC<{
       <br />
       Забыли пароль?
       <br />
-      <Button variant='contained' onClick={props.onSignUp}>Зарегистрироваться</Button>
+      <Button variant="contained" component={Link} to="/map">Зарегистрироваться</Button>
       <br />
-      Уже зарегистрированы? <span onClick={props.onSignIn}>Войти</span>
+      Уже зарегистрированы? <Link to="/" >Войти</Link>
     </Paper>
   );
 };

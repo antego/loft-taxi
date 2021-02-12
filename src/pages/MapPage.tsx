@@ -8,20 +8,12 @@ enum Dialog {
   CONFIRM,
 }
 
-const MapOrderPage: React.FC<{
-  onProfile: () => void;
-  onMap: () => void;
-  onSignOut: () => void;
-}> = (props) => {
+const MapOrderPage: React.FC<{}> = (props) => {
   const [dialog, setDialog] = useState<Dialog>(Dialog.ORDER);
 
   return (
     <>
-      <Header
-        onOrder={props.onMap}
-        onProfile={props.onProfile}
-        onSignOut={props.onSignOut}
-      />
+      <Header />
       {dialog === Dialog.ORDER ? (
         <OrderDialog onOrder={() => setDialog(Dialog.CONFIRM)} />
       ) : (

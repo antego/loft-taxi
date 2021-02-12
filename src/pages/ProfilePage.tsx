@@ -19,26 +19,17 @@ enum Dialog {
   CONFIRM,
 }
 
-const ProfilePage: React.FC<{
-  onMap: () => void;
-  onProfile: () => void;
-  onSignOut: () => void;
-  onReturnToMap: () => void;
-}> = (props) => {
+const ProfilePage: React.FC<{}> = (props) => {
   const [dialog, setDialog] = useState<Dialog>(Dialog.EDIT);
   const classes = useStyles();
   return (
     <>
-      <Header
-        onOrder={props.onMap}
-        onProfile={props.onProfile}
-        onSignOut={props.onSignOut}
-      />
+      <Header />
       <div className={classes.wrapper}>
         {dialog === Dialog.EDIT ? (
           <ProfileDialog onSave={() => setDialog(Dialog.CONFIRM)} />
         ) : (
-          <ProfileConfirmationDialog onReturnToOrder={props.onReturnToMap} />
+          <ProfileConfirmationDialog />
         )}
       </div>
     </>

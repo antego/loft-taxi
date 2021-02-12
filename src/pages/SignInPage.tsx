@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SignInPage: React.FC<{ onSignIn: () => void; onSignUp: () => void }> = (
+const SignInPage: React.FC<{}> = (
   props
 ) => {
   const classes = useStyles();
@@ -29,7 +29,7 @@ const SignInPage: React.FC<{ onSignIn: () => void; onSignUp: () => void }> = (
     <div className={classes.wrapper}>
       <div className={classes.leftColumn}></div>
       <div className={classes.rightColumn}>
-        <SignInDialog onSignIn={props.onSignIn} onSignUp={props.onSignUp} />
+        <SignInDialog />
       </div>
     </div>
   );
