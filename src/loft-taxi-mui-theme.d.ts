@@ -1,0 +1,1 @@
+declare module 'loft-taxi-mui-theme';

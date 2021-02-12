@@ -25,10 +25,10 @@ const Header: React.FC<{}> = (props) => {
         <div className={classes.logo}>
           LOFT<span style={{ color: "orange" }}>TAXI</span>
         </div>
-        <Button color="inherit" component={Link} to="/map">
+        <Button color="primary" component={Link} to="/map">
           Карта
         </Button>
-        <Button color="inherit" component={Link} to="/profile">
+        <Button color="primary" component={Link} to="/profile">
           Профиль
         </Button>
         <Button color="inherit" onClick={context.logout}>
