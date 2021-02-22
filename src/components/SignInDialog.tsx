@@ -4,7 +4,8 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
-import AuthContext from "./AuthContext";
+import { useDispatch } from "react-redux";
+import { login } from "../modules/auth";
 
 const useStyles = makeStyles({
   signInDialog: {
@@ -14,9 +15,9 @@ const useStyles = makeStyles({
   },
 });
 
-const SignInDialog: React.FC<{}> = (props) => {
+const SignInDialog: React.FC<{}> = () => {
   const classes = useStyles();
-  const context = useContext(AuthContext);
+  const dispatch = useDispatch()
   return (
     <Paper className={classes.signInDialog} elevation={10}>
       <h2>Войти</h2>
@@ -32,7 +33,7 @@ const SignInDialog: React.FC<{}> = (props) => {
         <br />
         Забыли пароль?
         <br />
-        <Button variant="contained" component={Link} to="/map" onClick={context.login}>
+        <Button variant="contained" component={Link} to="/map" onClick={() => dispatch(login())}>
           Войти
         </Button>
       </form>

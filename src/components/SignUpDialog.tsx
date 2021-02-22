@@ -4,7 +4,8 @@ import React, { useContext } from "react"; // we need this to make JSX compile
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
-import AuthContext from "./AuthContext";
+import { useDispatch } from "react-redux";
+import { login } from "../modules/auth";
 
 const useStyles = makeStyles({
   signUpDialog: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
 
 const SignUpDialog: React.FC<{}> = (props) => {
   const classes = useStyles();
-  const context = useContext(AuthContext);
+  const dispatch = useDispatch();
   return (
     <Paper className={classes.signUpDialog} elevation={10}>
       <h2>Регистрация</h2>
@@ -39,7 +40,7 @@ const SignUpDialog: React.FC<{}> = (props) => {
         variant="contained"
         component={Link}
         to="/map"
-        onClick={context.login}
+        onClick={() => dispatch(login())}
       >
         Зарегистрироваться
       </Button>

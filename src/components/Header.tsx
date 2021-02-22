@@ -4,7 +4,8 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import { Link } from "react-router-dom";
-import AuthContext from "../components/AuthContext";
+import { useDispatch } from "react-redux";
+import { logout } from "../modules/auth";
 
 const useStyles = makeStyles({
   appBar: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
 
 const Header: React.FC<{}> = (props) => {
   const classes = useStyles();
-  const context = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   return (
     <AppBar position="static" className={classes.appBar}>
@@ -31,7 +32,7 @@ const Header: React.FC<{}> = (props) => {
         <Button color="inherit" component={Link} to="/profile">
           Профиль
         </Button>
-        <Button color="inherit" onClick={context.logout}>
+        <Button color="inherit" onClick={() => dispatch(logout())}>
           Выйти
         </Button>
       </Toolbar>

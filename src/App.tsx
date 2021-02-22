@@ -5,31 +5,26 @@ import SignUpPage from "./pages/SignUpPage";
 import ProfilePage from "./pages/ProfilePage";
 import MapPage from "./pages/MapPage";
 import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
-import AuthContext from "./components/AuthContext";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
 
 const App: React.FC<{}> = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const login = () => setIsLoggedIn(true);
-  const logout = () => setIsLoggedIn(false);
-
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn)
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/signup" component={SignUpPage} />
-          <Route
-            path="/map"
-            render={() => (isLoggedIn ? <MapPage /> : <Redirect to="/" />)}
-          />
-          <Route
-            path="/profile"
-            render={() => (isLoggedIn ? <ProfilePage /> : <Redirect to="/" />)}
-          />
-          <Route path="/" component={SignInPage} exact />
-        </Switch>
-      </BrowserRouter>
-    </AuthContext.Provider>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/signup" component={SignUpPage} />
+        <Route
+          path="/map"
+          render={() => (isLoggedIn ? <MapPage /> : <Redirect to="/" />)}
+        />
+        <Route
+          path="/profile"
+          render={() => (isLoggedIn ? <ProfilePage /> : <Redirect to="/" />)}
+        />
+        <Route path="/" component={SignInPage} exact />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
